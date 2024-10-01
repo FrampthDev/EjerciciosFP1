@@ -1,4 +1,4 @@
-﻿// Javier Zazo Morilla
+﻿// Javier Zazo Morillo
 // Miguel Ángel González López
 
 using System.Drawing;
