@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9D8QpCOGFGXWdWxhpSCaFg2dFNjZjgqzcmRhJ4lsk2z4DxHMBDTmNXV1emIkjMfoIcL+C7xcfGiwk8x1obs1NQ==",
+  "success": true,
+  "projectFilePath": "/home/frampth/Documentos/Github/EjerciciosFP1/Hoja3/Ejercicio1/Hoja3.csproj",
+  "expectedPackageFiles": [
+    "/home/frampth/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.8/microsoft.aspnetcore.app.ref.8.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
