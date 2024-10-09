@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hoja3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12db99f2db5d98153f0ed9f792fabfb19360ff3a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7941fd1a9a813d2bdcc1b0f67326032139df05d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hoja3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hoja3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

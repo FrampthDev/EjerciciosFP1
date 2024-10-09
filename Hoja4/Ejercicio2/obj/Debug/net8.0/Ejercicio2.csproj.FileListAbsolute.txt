@@ -1,0 +1,15 @@
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/bin/Debug/net8.0/Ejercicio2
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/bin/Debug/net8.0/Ejercicio2.deps.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/bin/Debug/net8.0/Ejercicio2.runtimeconfig.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/bin/Debug/net8.0/Ejercicio2.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/bin/Debug/net8.0/Ejercicio2.pdb
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.GeneratedMSBuildEditorConfig.editorconfig
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.AssemblyInfoInputs.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.AssemblyInfo.cs
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.csproj.CoreCompileInputs.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.sourcelink.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/refint/Ejercicio2.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.pdb
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/Ejercicio2.genruntimeconfig.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio2/obj/Debug/net8.0/ref/Ejercicio2.dll
