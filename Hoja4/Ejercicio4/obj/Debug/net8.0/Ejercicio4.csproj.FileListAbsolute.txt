@@ -1,0 +1,15 @@
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.GeneratedMSBuildEditorConfig.editorconfig
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.AssemblyInfoInputs.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.AssemblyInfo.cs
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.csproj.CoreCompileInputs.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.sourcelink.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/bin/Debug/net8.0/Ejercicio4
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/bin/Debug/net8.0/Ejercicio4.deps.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/bin/Debug/net8.0/Ejercicio4.runtimeconfig.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/bin/Debug/net8.0/Ejercicio4.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/bin/Debug/net8.0/Ejercicio4.pdb
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/refint/Ejercicio4.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.pdb
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/Ejercicio4.genruntimeconfig.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Hoja4/Ejercicio4/obj/Debug/net8.0/ref/Ejercicio4.dll
