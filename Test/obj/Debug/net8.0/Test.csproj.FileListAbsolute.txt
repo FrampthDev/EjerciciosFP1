@@ -1,0 +1,15 @@
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.GeneratedMSBuildEditorConfig.editorconfig
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.AssemblyInfoInputs.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.AssemblyInfo.cs
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.csproj.CoreCompileInputs.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.sourcelink.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/bin/Debug/net8.0/Test
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/bin/Debug/net8.0/Test.deps.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/bin/Debug/net8.0/Test.runtimeconfig.json
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/bin/Debug/net8.0/Test.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/bin/Debug/net8.0/Test.pdb
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/refint/Test.dll
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.pdb
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/Test.genruntimeconfig.cache
+/home/frampth/Documentos/Github/EjerciciosFP1/Test/obj/Debug/net8.0/ref/Test.dll
