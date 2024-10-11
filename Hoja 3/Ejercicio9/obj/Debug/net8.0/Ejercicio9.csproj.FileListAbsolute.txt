@@ -1,0 +1,14 @@
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\bin\Debug\net8.0\Ejercicio9.exe
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\bin\Debug\net8.0\Ejercicio9.deps.json
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\bin\Debug\net8.0\Ejercicio9.runtimeconfig.json
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\bin\Debug\net8.0\Ejercicio9.dll
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\bin\Debug\net8.0\Ejercicio9.pdb
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.AssemblyInfoInputs.cache
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.AssemblyInfo.cs
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.csproj.CoreCompileInputs.cache
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.dll
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\refint\Ejercicio9.dll
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.pdb
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\Ejercicio9.genruntimeconfig.cache
+C:\Users\jzazo\source\repos\Hoja 3\Ejercicio9\obj\Debug\net8.0\ref\Ejercicio9.dll
