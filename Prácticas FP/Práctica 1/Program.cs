@@ -19,21 +19,21 @@ namespace Práctica_1
                 jugCol, jugFil,
                 eneCol, eneFil,
                 balaFil = -1, balaCol = -1,
-                bombaCol, bombaFil,
-                finPartida; // 0 jugando; 1 gana jugador; 2 gana enemigo; 3 abortar
+                bombaCol = -1, bombaFil= -1,
+                finPartida=0; // 0 jugando; 1 gana jugador; 2 gana enemigo; 3 abortar
 
             bool hayBala = false;
+            bool hayBomba = false;
 
             jugCol = COLS / 4; 
             jugFil = FILS * 3 / 4;
             eneCol = COLS / 2;
             eneFil = FILS / 4;
 
-            //Console.SetWindowSize(COLS, FILS);
-            //Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(0,0);
 
             // bucle ppal
-            while (true) {
+            while (finPartida==0) {
                 // recogida de INPUT DE USUARIO
                 string dir = "";
                 if (Console.KeyAvailable)
@@ -83,7 +83,7 @@ namespace Práctica_1
 
                 // lógica del enemigo
 
-                aleatorio = rnd.Next(0, 4); // 0 enemigo arriba; 1 enemigo izquierda; 2 enemigo abajo; 3 enemigo derecha
+                aleatorio = rnd.Next(0, 4); // Codificación: 0 enemigo arriba; 1 enemigo izquierda; 2 enemigo abajo; 3 enemigo derecha
 
                 if (aleatorio == 0 && eneFil > 0)
                 {
@@ -97,14 +97,45 @@ namespace Práctica_1
                 {
                     eneFil++;
                 }
-                else if (/*aleatorio == 3 &&*/ eneCol < COLS)
+                else if (/*aleatorio == 3 &&*/ eneCol < COLS-2)
                 {
                     eneCol++;
                 }
 
                 // lógica de la bomba 
 
+                if (!hayBomba)
+                {
+                    bombaCol=eneCol;
+                    bombaFil=eneFil;
+                    hayBomba=true;
+                }
+                else{
+                    bombaFil++;
+                }
+                if (bombaFil>FILS){
+                    hayBomba= false;
+                }
+
                 // colisiones
+
+                
+                if ((balaFil == eneFil && balaCol == eneCol) 
+                || (balaFil == eneFil && balaCol == eneCol-1) 
+                || (balaFil == eneFil && balaCol == eneCol+1)) // colisiones enemigo-bala
+                {
+                    finPartida=1;
+                }
+
+                if (bombaFil == jugFil && bombaCol == jugCol) // colisiones jugador-bomba
+                {
+                    finPartida=2;
+                }
+
+                if (jugCol == eneCol && jugFil == eneFil)
+                {
+                    finPartida=2;
+                }
 
                 // RENDERIZADO 
 
@@ -126,12 +157,18 @@ namespace Práctica_1
                         else if (eneCol == c && eneFil == f)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write("Ç");
+                            Console.Write("<=>");
+                            c= c+2; // corrige los dos huecos siguientes a las coordenadas del enemigo saltandoselos.
+                            
+                        }
+                        else if (bombaCol == c && bombaFil == f){
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.Write("*");
                         }
                         else
                         {
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(" ");
+                            Console.Write(".");
                         }                           
                     }
                     Console.WriteLine();
@@ -142,6 +179,14 @@ namespace Práctica_1
                 System.Threading.Thread.Sleep(DELTA);
                 Console.Clear();
             }
+        
+        if (finPartida == 1){
+            Console.WriteLine("Has ganado");
+        }
+        if (finPartida == 2){
+            Console.WriteLine("Has perdido");
+        }
+        
         }
     }
 }
