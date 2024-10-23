@@ -6,13 +6,15 @@ namespace Práctica_1
     {
         const int DELTA = 400;
         const int FILS = 14, COLS = 22;
-        //Console.SetWindowSize(FILS,COLS);
+        
+        
 
         static Random rnd = new Random(); // aleatorios para movimiento del enemigo
 
         public static void Main(string[] args)
         {
             // Console.SetWindowSize(width, height); // para poner consola de tamaño COLSxFILS
+            Console.SetWindowSize(FILS,COLS);
 
             Console.CursorVisible = false; // ocultamos cursor en pantalla
 
@@ -121,7 +123,9 @@ namespace Práctica_1
                     finPartida=2;
                 }
 
-                if (jugCol == eneCol && jugFil == eneFil)
+                if (jugCol == eneCol && jugFil == eneFil
+                || jugCol == eneCol && eneFil == eneFil-1
+                || jugCol == eneCol && eneFil == eneFil+1) 
                 {
                     finPartida=2;
                 }
