@@ -15,7 +15,7 @@ namespace Práctica_1
 
             Console.CursorVisible = false; // ocultamos cursor en pantalla
 
-            int aleatorio,
+            int aleatorioCol, aleatorioFil,
                 jugCol, jugFil,
                 eneCol, eneFil,
                 balaFil = -1, balaCol = -1,
@@ -82,25 +82,13 @@ namespace Práctica_1
                 }
 
                 // lógica del enemigo
+                aleatorioCol = rnd.Next(-1, 2);
+                aleatorioFil = rnd.Next(-1, 2);
+                //Console.WriteLine(eneCol+ " "+eneFil+" "+aleatorioCol + " " + aleatorioFil); //Debug
+                eneCol += aleatorioCol;
+                eneFil += aleatorioFil;
 
-                aleatorio = rnd.Next(0, 4); // Codificación: 0 enemigo arriba; 1 enemigo izquierda; 2 enemigo abajo; 3 enemigo derecha
-
-                if (aleatorio == 0 && eneFil > 0)
-                {
-                    eneFil--;
-                }
-                else if (aleatorio == 1 && eneCol > 0)
-                {
-                    eneCol--;
-                }
-                else if (aleatorio == 2 && eneFil < FILS / 2 - 1)
-                {
-                    eneFil++;
-                }
-                else if (/*aleatorio == 3 &&*/ eneCol < COLS-2)
-                {
-                    eneCol++;
-                }
+                // el enemigo puede salirse del mapa.
 
                 // lógica de la bomba 
 
