@@ -6,6 +6,7 @@ namespace Práctica_1
     {
         const int DELTA = 400;
         const int FILS = 14, COLS = 22;
+        //Console.SetWindowSize(FILS,COLS);
 
         static Random rnd = new Random(); // aleatorios para movimiento del enemigo
 
