@@ -1,5 +1,7 @@
 ﻿// Javier Zazo Morillo
 // Miguel Ángel González López
+using System.Security.Cryptography.X509Certificates;
+
 namespace Práctica_1
 {
     class MainClass
@@ -11,9 +13,8 @@ namespace Práctica_1
 
         public static void Main(string[] args)
         {
-            //Console.SetWindowSize(width, height); // para poner consola de tamaño COLSxFILS
-            Console.SetWindowSize(FILS,COLS);
-
+            Console.SetWindowSize(FILS,COLS); // para poner consola de tamaño COLSxFILS
+            
             Console.CursorVisible = false; // ocultamos cursor en pantalla
 
             int minCol=0, maxCol=0,
@@ -103,7 +104,7 @@ namespace Práctica_1
                     
                 aleatorioCol = rnd.Next(minCol, maxCol + 1);
                 aleatorioFil = rnd.Next(minFil, maxFil + 1);
-                Console.WriteLine(eneCol+ " "+eneFil+" "+aleatorioCol + " " + aleatorioFil); //Debug
+                //Console.WriteLine(eneCol+ " "+eneFil+" "+aleatorioCol + " " + aleatorioFil); //Debug
                 
                 eneCol += aleatorioCol;
                 eneFil += aleatorioFil;
