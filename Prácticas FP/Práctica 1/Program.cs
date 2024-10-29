@@ -7,18 +7,18 @@ namespace Práctica_1
         const int DELTA = 400;
         const int FILS = 14, COLS = 22;
         
-        
-
         static Random rnd = new Random(); // aleatorios para movimiento del enemigo
 
         public static void Main(string[] args)
         {
-            // Console.SetWindowSize(width, height); // para poner consola de tamaño COLSxFILS
+            //Console.SetWindowSize(width, height); // para poner consola de tamaño COLSxFILS
             Console.SetWindowSize(FILS,COLS);
 
             Console.CursorVisible = false; // ocultamos cursor en pantalla
 
-            int aleatorioCol, aleatorioFil,
+            int minCol=0, maxCol=0,
+                minFil=0,maxFil=0,
+                aleatorioCol, aleatorioFil,
                 jugCol, jugFil,
                 eneCol, eneFil,
                 balaFil = -1, balaCol = -1,
@@ -48,7 +48,7 @@ namespace Práctica_1
 
                 // lógica de jugador 
 
-                if (dir == "w" && jugFil > FILS / 2)
+                if (dir == "w" && jugFil > 0)
                 {
                     jugFil--;
                 }
@@ -85,9 +85,26 @@ namespace Práctica_1
                 }
 
                 // lógica del enemigo
-                aleatorioCol = rnd.Next(-1, 2);
-                aleatorioFil = rnd.Next(-1, 2);
-                //Console.WriteLine(eneCol+ " "+eneFil+" "+aleatorioCol + " " + aleatorioFil); //Debug
+                if (eneCol > 0)
+                    minCol = -1;
+                else minCol = 0;
+                
+                if (eneCol < COLS-2)
+                    maxCol = 1;
+                else maxCol = 0;
+
+                if (eneFil > 0)
+                    minFil = -1;
+                else minFil = 0;
+                
+                if (eneFil < FILS/2)
+                    maxFil = 1;
+                else maxFil = 0;
+                    
+                aleatorioCol = rnd.Next(minCol, maxCol + 1);
+                aleatorioFil = rnd.Next(minFil, maxFil + 1);
+                Console.WriteLine(eneCol+ " "+eneFil+" "+aleatorioCol + " " + aleatorioFil); //Debug
+                
                 eneCol += aleatorioCol;
                 eneFil += aleatorioFil;
 
@@ -109,11 +126,17 @@ namespace Práctica_1
                 }
 
                 // colisiones
-
                 
+                if (balaFil == bombaFil && balaCol == bombaCol) // colisiones bala-bomba
+                {
+                    hayBala = false;
+                    hayBomba = false;
+                }
+
+
                 if ((balaFil == eneFil && balaCol == eneCol) 
-                || (balaFil == eneFil && balaCol == eneCol-1) 
-                || (balaFil == eneFil && balaCol == eneCol+1)) // colisiones enemigo-bala
+                || (balaFil == eneFil && balaCol == eneCol+1) 
+                || (balaFil == eneFil && balaCol == eneCol+2)) // colisiones enemigo-bala
                 {
                     finPartida=1;
                 }
@@ -124,12 +147,12 @@ namespace Práctica_1
                 }
 
                 if (jugCol == eneCol && jugFil == eneFil
-                || jugCol == eneCol && eneFil == eneFil-1
-                || jugCol == eneCol && eneFil == eneFil+1) 
+                || jugCol == eneCol+1 && jugFil == eneFil
+                || jugCol == eneCol+2 && jugFil == eneFil)  // 
                 {
                     finPartida=2;
                 }
-
+                
                 // RENDERIZADO 
 
                 // Recorre una matriz y dibuja el mapa
@@ -161,7 +184,7 @@ namespace Práctica_1
                         else
                         {
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(".");
+                            Console.Write(" ");
                         }                           
                     }
                     Console.WriteLine();

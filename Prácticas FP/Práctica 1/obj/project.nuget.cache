@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ia+2Cb2dTXRVLbwv94zbUA0+OVWN2781AafqHPhEEh29REUPohuVai2VoFbuVamMaEsojBj97s4ksTp5JEUO9w==",
+  "dgSpecHash": "CvDoE5U+LH1AVSPTYPHiMudPBWzaLcr0pcr7nC2TWVLNEM6w1pQfoOY5woEyRLD3/cDNkNEzURLl5gyD8/Sl5w==",
   "success": true,
   "projectFilePath": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj",
-  "expectedPackageFiles": [
-    "/home/frampth/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.8/microsoft.aspnetcore.app.ref.8.0.8.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
