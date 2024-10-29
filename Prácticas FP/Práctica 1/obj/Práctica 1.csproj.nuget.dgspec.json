@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj": {}
+    "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\Práctica 1.csproj": {}
   },
   "projects": {
-    "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj": {
+    "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\Práctica 1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj",
+        "projectUniqueName": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\Práctica 1.csproj",
         "projectName": "Práctica 1",
-        "projectPath": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj",
-        "packagesPath": "/home/frampth/.nuget/packages/",
-        "outputPath": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/obj/",
+        "projectPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\Práctica 1.csproj",
+        "packagesPath": "C:\\Users\\jzazo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/frampth/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jzazo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -53,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

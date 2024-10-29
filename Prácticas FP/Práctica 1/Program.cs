@@ -13,7 +13,7 @@ namespace Práctica_1
 
         public static void Main(string[] args)
         {
-            Console.SetWindowSize(FILS,COLS); // para poner consola de tamaño COLSxFILS
+            // Console.SetWindowSize(COLS,FILS); // para poner consola de tamaño COLSxFILS // Rompe el juego
             
             Console.CursorVisible = false; // ocultamos cursor en pantalla
 
@@ -53,22 +53,22 @@ namespace Práctica_1
                 {
                     jugFil--;
                 }
-                if (dir == "a" && jugCol > 0)
+                else if (dir == "a" && jugCol > 0)
                 {
                     jugCol--;
                 }
-                if (dir == "s" && jugFil < FILS)
+                else if (dir == "s" && jugFil < FILS-1)
                 {
                     jugFil++;
                 }
-                if (dir == "d" && jugCol < COLS)
+                else if (dir == "d" && jugCol < COLS-1)
                 {
                     jugCol++;
                 }
 
                 // lógica de la bala
 
-                if (dir == "l" && !hayBala)
+                else if (dir == "l" && !hayBala)
                 {
                     balaCol = jugCol;
                     balaFil = jugFil;
@@ -119,15 +119,19 @@ namespace Práctica_1
                     bombaFil=eneFil;
                     hayBomba=true;
                 }
-                else{
-                    bombaFil++;
-                }
-                if (bombaFil>FILS){
-                    hayBomba= false;
+
+                if (hayBomba)
+                {
+                    bombaFil--;
+
+                    if (bombaFil > FILS - 1)
+                    {
+                        hayBomba = false;
+                    }
                 }
 
                 // colisiones
-                
+
                 if (balaFil == bombaFil && balaCol == bombaCol) // colisiones bala-bomba
                 {
                     hayBala = false;
@@ -149,14 +153,17 @@ namespace Práctica_1
 
                 if (jugCol == eneCol && jugFil == eneFil
                 || jugCol == eneCol+1 && jugFil == eneFil
-                || jugCol == eneCol+2 && jugFil == eneFil)  // 
+                || jugCol == eneCol+2 && jugFil == eneFil)  // colisiones jugador-enemigo
                 {
                     finPartida=2;
                 }
-                
+
                 // RENDERIZADO 
 
                 // Recorre una matriz y dibuja el mapa
+
+                Console.Clear();
+
                 for (int f = 0; f <= FILS; f++)
                 {
                     for (int c = 0; c <= COLS; c++)
@@ -171,14 +178,14 @@ namespace Práctica_1
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.Write("^");
                         }
-                        else if (eneCol == c && eneFil == f)
+                        else if (eneCol == c && eneFil == f) // Renderizado enemigo
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write("<=>");
-                            c= c+2; // corrige los dos huecos siguientes a las coordenadas del enemigo saltandoselos.
-                            
+                            c = c+2; // corrige los dos huecos siguientes a las coordenadas del enemigo saltandoselos.                    
                         }
-                        else if (bombaCol == c && bombaFil == f){
+                        else if (bombaCol == c && bombaFil == f) // Renderizado bomba
+                        {
                             Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.Write("*");
                         }
@@ -194,16 +201,13 @@ namespace Práctica_1
                 // retardo
 
                 System.Threading.Thread.Sleep(DELTA);
-                Console.Clear();
-            }
-        
-        if (finPartida == 1){
+            }      
+
+        if (finPartida == 1)
             Console.WriteLine("Has ganado");
-        }
-        if (finPartida == 2){
-            Console.WriteLine("Has perdido");
-        }
         
+        if (finPartida == 2)
+            Console.WriteLine("Has perdido");    
         }
     }
 }
