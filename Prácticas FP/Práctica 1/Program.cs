@@ -122,7 +122,7 @@ namespace Práctica_1
 
                 if (hayBomba)
                 {
-                    bombaFil--;
+                    bombaFil++;
 
                     if (bombaFil > FILS - 1)
                     {
