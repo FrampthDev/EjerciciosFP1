@@ -164,7 +164,29 @@ namespace Práctica_1
 
                 Console.Clear();
 
-                for (int f = 0; f <= FILS; f++)
+                Console.SetCursorPosition(jugCol, jugFil);
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("o");
+
+                if (hayBala)
+                {
+                    Console.SetCursorPosition(balaCol, balaFil);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("^");
+                }
+
+                Console.SetCursorPosition(eneCol, eneFil);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("<=>");
+
+                if (hayBomba)
+                {
+                    Console.SetCursorPosition(bombaCol, bombaFil);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("*");
+                }
+
+                /*for (int f = 0; f <= FILS; f++)
                 {
                     for (int c = 0; c <= COLS; c++)
                     {
@@ -194,9 +216,9 @@ namespace Práctica_1
                             Console.ForegroundColor = ConsoleColor.White;
                             Console.Write(" ");
                         }                           
-                    }
+                    } 
                     Console.WriteLine();
-                }
+                } */
 
                 // retardo
 
