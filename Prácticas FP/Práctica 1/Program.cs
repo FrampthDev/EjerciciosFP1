@@ -65,7 +65,7 @@ namespace Práctica_1
                 {
                     jugCol++;
                 }
-
+                
                 // lógica de la bala
 
                 else if (dir == "l" && !hayBala)
@@ -108,6 +108,8 @@ namespace Práctica_1
                 
                 eneCol += aleatorioCol;
                 eneFil += aleatorioFil;
+
+                // Nota: Comprobar colisión antes de mover las demás 
 
                 // el enemigo puede salirse del mapa.
 
@@ -160,8 +162,6 @@ namespace Práctica_1
 
                 // RENDERIZADO 
 
-                // Recorre una matriz y dibuja el mapa
-
                 Console.Clear();
 
                 Console.SetCursorPosition(jugCol, jugFil);
@@ -186,39 +186,6 @@ namespace Práctica_1
                     Console.Write("*");
                 }
 
-                /*for (int f = 0; f <= FILS; f++)
-                {
-                    for (int c = 0; c <= COLS; c++)
-                    {
-                        if (jugCol == c && jugFil == f) // Renderizado jugador
-                        {
-                            Console.ForegroundColor = ConsoleColor.Blue;
-                            Console.Write("o");
-                        }
-                        else if (hayBala && balaCol == c && balaFil == f) // Renderizado bala
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.Write("^");
-                        }
-                        else if (eneCol == c && eneFil == f) // Renderizado enemigo
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write("<=>");
-                            c = c+2; // corrige los dos huecos siguientes a las coordenadas del enemigo saltandoselos.                    
-                        }
-                        else if (bombaCol == c && bombaFil == f) // Renderizado bomba
-                        {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.Write("*");
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Console.Write(" ");
-                        }                           
-                    } 
-                    Console.WriteLine();
-                } */
 
                 // retardo
 
