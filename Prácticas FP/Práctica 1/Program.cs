@@ -1,6 +1,5 @@
 ﻿// Javier Zazo Morillo
 // Miguel Ángel González López
-using System.Security.Cryptography.X509Certificates;
 
 namespace Práctica_1
 {
@@ -24,7 +23,7 @@ namespace Práctica_1
                 eneCol, eneFil,
                 balaFil = -1, balaCol = -1,
                 bombaCol = -1, bombaFil= -1,
-                finPartida=0; // 0 jugando; 1 gana jugador; 2 gana enemigo; 3 abortar
+                finPartida=0; // 0 jugando; 1 gana jugador; 2 gana enemigo
 
             bool hayBala = false;
             bool hayBomba = false;
@@ -108,10 +107,7 @@ namespace Práctica_1
                 
                 eneCol += aleatorioCol;
                 eneFil += aleatorioFil;
-
-                // Nota: Comprobar colisión antes de mover las demás 
-
-                // el enemigo puede salirse del mapa.
+                
 
                 // lógica de la bomba 
 
