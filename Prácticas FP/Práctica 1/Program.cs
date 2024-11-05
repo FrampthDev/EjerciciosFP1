@@ -137,7 +137,7 @@ namespace Práctica_1
                 }
 
 
-                if ((balaFil == eneFil && balaCol == eneCol) 
+                if ((balaFil == eneFil && balaCol == eneCol)  
                 || (balaFil == eneFil && balaCol == eneCol+1) 
                 || (balaFil == eneFil && balaCol == eneCol+2)) // colisiones enemigo-bala
                 {
@@ -149,7 +149,7 @@ namespace Práctica_1
                     finPartida=2;
                 }
 
-                if (jugCol == eneCol && jugFil == eneFil
+                if (jugCol == eneCol && jugFil == eneFil // factor común
                 || jugCol == eneCol+1 && jugFil == eneFil
                 || jugCol == eneCol+2 && jugFil == eneFil)  // colisiones jugador-enemigo
                 {
@@ -191,7 +191,7 @@ namespace Práctica_1
         if (finPartida == 1)
             Console.WriteLine("Has ganado");
         
-        if (finPartida == 2)
+        else if (finPartida == 2)
             Console.WriteLine("Has perdido");    
         }
     }
