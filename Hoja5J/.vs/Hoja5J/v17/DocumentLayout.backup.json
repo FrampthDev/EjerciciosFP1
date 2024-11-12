@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Hoja5J\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8172632B-19AE-4926-B606-16E97E85CBE8}|EjercicioB\\EjercicioB.csproj|c:\\users\\jzazo\\documents\\github\\ejerciciosfp1\\hoja5j\\ejerciciob\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8172632B-19AE-4926-B606-16E97E85CBE8}|EjercicioB\\EjercicioB.csproj|solutionrelative:ejerciciob\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Hoja5J\\EjercicioB\\Program.cs",
+              "RelativeDocumentMoniker": "EjercicioB\\Program.cs",
+              "ToolTip": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Hoja5J\\EjercicioB\\Program.cs",
+              "RelativeToolTip": "EjercicioB\\Program.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAuwGYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T10:12:33.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

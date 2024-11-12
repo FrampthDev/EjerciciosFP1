@@ -5,7 +5,7 @@ namespace Práctica_1
 {
     class MainClass
     {
-        const int DELTA = 400;
+        const int DELTA = 50;
         const int FILS = 14, COLS = 22;
         
         static Random rnd = new Random(); // aleatorios para movimiento del enemigo

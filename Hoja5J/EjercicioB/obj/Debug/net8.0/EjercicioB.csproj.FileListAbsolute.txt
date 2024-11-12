@@ -1,0 +1,15 @@
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\bin\Debug\net8.0\EjercicioB.exe
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\bin\Debug\net8.0\EjercicioB.deps.json
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\bin\Debug\net8.0\EjercicioB.runtimeconfig.json
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\bin\Debug\net8.0\EjercicioB.dll
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\bin\Debug\net8.0\EjercicioB.pdb
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.AssemblyInfoInputs.cache
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.AssemblyInfo.cs
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.csproj.CoreCompileInputs.cache
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.sourcelink.json
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.dll
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\refint\EjercicioB.dll
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.pdb
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\EjercicioB.genruntimeconfig.cache
+C:\Users\jzazo\Documents\GitHub\EjerciciosFP1\Hoja5J\EjercicioB\obj\Debug\net8.0\ref\EjercicioB.dll
