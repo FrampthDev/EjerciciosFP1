@@ -5,6 +5,7 @@ namespace EjercicioB
     internal class Program
     {
         const int DELTA = 400, WIDTH = 8;
+        Random rnd = new();
         static void Main()
         { 
             int TrackPos = 7, CarPos = 5;
@@ -16,12 +17,12 @@ namespace EjercicioB
              while (!EndGame)
             {
                 Render(TrackPos, CarPos, Car, EndGame);
-
+                
                 System.Threading.Thread.Sleep(DELTA);
 
-                Input(ref Dir);
+                Input(out Dir);
 
-                Logic(ref TrackPos, ref CarPos);
+                // Logic(ref TrackPos, ref CarPos);
 
                 PlayerMovement(ref CarPos, Dir);
 
@@ -31,13 +32,12 @@ namespace EjercicioB
 
                 System.Threading.Thread.Sleep(DELTA);
             }
-             Render(TrackPos, CarPos, Car, EndGame);
 
-             Console.WriteLine("Crash");
+             Console.WriteLine("You crashed!");
         }
         
 
-        static void Input(ref string Dir)
+        static void Input(out string Dir)
         {
             if (Console.KeyAvailable)
             {
@@ -46,9 +46,8 @@ namespace EjercicioB
             else Dir = "";
         }
 
-        static void Logic(ref int TrackPos, ref int CarPos)
+        /*static void Logic(ref int TrackPos, ref int CarPos)
         {
-            Random rnd = new Random();
             int curva = rnd.Next(-1, 2);
 
             if (curva == -1)
@@ -61,7 +60,7 @@ namespace EjercicioB
                 TrackPos++;
                 CarPos--;
             }
-        }
+        }*/
 
         static void PlayerMovement(ref int CarPos, string Dir)
         {
@@ -75,9 +74,9 @@ namespace EjercicioB
             }
         }
 
-        static void Collider(ref bool EndGame, int CarPos, int TrackPos, ref string Car)
+        static void Collider(ref bool EndGame, int CarPos, int TrackPos,ref string Car)
         {
-            if ((CarPos <= 0 ) || (CarPos >= WIDTH)) 
+            if ((CarPos <= 0 ) || (CarPos >= WIDTH + 1)) 
             {
                 EndGame = true;
                 Car = "*";
