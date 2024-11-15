@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj": {}
+    "/home/frampth/Documentos/Github/EjerciciosFP1/Hoja6/Ejercicio1/Ejercicio1.csproj": {}
   },
   "projects": {
-    "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj": {
+    "/home/frampth/Documentos/Github/EjerciciosFP1/Hoja6/Ejercicio1/Ejercicio1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj",
-        "projectName": "Práctica 1",
-        "projectPath": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/Práctica 1.csproj",
+        "projectUniqueName": "/home/frampth/Documentos/Github/EjerciciosFP1/Hoja6/Ejercicio1/Ejercicio1.csproj",
+        "projectName": "Ejercicio1",
+        "projectPath": "/home/frampth/Documentos/Github/EjerciciosFP1/Hoja6/Ejercicio1/Ejercicio1.csproj",
         "packagesPath": "/home/frampth/.nuget/packages/",
-        "outputPath": "/home/frampth/Documentos/Github/EjerciciosFP1/Prácticas FP/Práctica 1/obj/",
+        "outputPath": "/home/frampth/Documentos/Github/EjerciciosFP1/Hoja6/Ejercicio1/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/frampth/.nuget/NuGet/NuGet.Config"
