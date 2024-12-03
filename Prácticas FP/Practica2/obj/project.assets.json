@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\Práctica 1.csproj",
-      "projectName": "Práctica 1",
-      "projectPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\Práctica 1.csproj",
+      "projectUniqueName": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Practica2\\Practica2.csproj",
+      "projectName": "Practica2",
+      "projectPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Practica2\\Practica2.csproj",
       "packagesPath": "C:\\Users\\jzazo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Práctica 1\\obj\\",
+      "outputPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Prácticas FP\\Practica2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
