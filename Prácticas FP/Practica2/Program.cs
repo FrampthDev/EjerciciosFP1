@@ -6,10 +6,12 @@ using System.Threading;
 
 namespace naves {
     class Program {
+        
         const bool DEBUG = true;
         const int ANCHO=24, ALTO = 15;
         static Random rnd = new Random(11);
 
+        bool hayEnemigo = false;        
         static void Main() {
             //Console.SetWindowSize(ANCHO, ALTO);
             //Console.SetBufferSize(ANCHO, ALTO);
@@ -22,6 +24,8 @@ namespace naves {
                 enemigoC, enemigoF;
 
             // inicializacion
+            naveC = ANCHO/2;
+
             Renderizado(suelo, techo);
            
             while (true){ // true provisional
@@ -92,41 +96,47 @@ namespace naves {
 
         static void LogicaJuego(ref int naveC, ref int naveF, ref int balaC, ref int balaF, ref int enemigoC,ref int enemigoF){
 
-            int[] movNave = new int[2]; //movimiento a aplicar al jugador
-            int[] movBala = new int[2];
-            int[] movEnemigo = new int[2];
-
-            // leer input jugador.
-
-            if (LeeInput() == 'r'){
-                
-            }
-            else if (LeeInput() == 'l'){
-                
-            }
-            else if (LeeInput() == 'u'){
-                
-            }
-            else if (LeeInput() == 'd'){
-                
-            }
-
-            
-
-            //posicionar jugador
-            MoverEntidad(ref naveC, ref naveF, movNave);
-            
-            // posicionar enemigo
-            MoverEntidad(ref naveC, ref naveF, movEnemigo);
-            // posicionar la bala
-            MoverEntidad(ref naveC, ref naveF, movBala);
         
         }
 
-        static void MoverEntidad(ref int Col,ref int Fil,int[] vector ){
+        static void GeneraAvanzaEnemigo(ref int enemigoC, ref int enemigoF, ref bool hayEnemigo, int[] suelo, int []techo){
+            
+            int filaAleatoria = rnd.Next(ALTO-(techo[techo.Length]+suelo[suelo.Length])); // calcula un número aleatorio entre los espacios posibles de la última fila del túnel
+            int probabilidadDeGeneracion = rnd.Next(3);            
 
+
+            if (hayEnemigo) enemigoC --;
+            else {
+                if (probabilidadDeGeneracion == 0){ // 1/4 de probabilidades de generar
+                enemigoC = ANCHO;
+                enemigoF = filaAleatoria + techo[techo.Length]; 
+                }
+            }
         }
-        
-        
-    }
+
+        static void AvanzaNave(char ch, ref int naveC, ref int naveF, int enemigoC, int enemigoF, int[] suelo, int[] techo){
+            
+
+            if ((naveF != suelo[naveF] && naveF != techo[naveF]) && (naveC != enemigoC && naveF!=enemigoF)){
+                // Si la nave no está dentro del suelo, ni del techo ni del enemigo:
+
+                switch (LeeInput()){
+                    case 'l':
+                        naveC--;
+                        break;
+                    case 'r':
+                        naveC++;
+                        break;
+                    case 'u':
+                        naveF--;
+                        break;
+                    case 'd':
+                        naveF++;
+                        break;
+            }
+
+
+            }
+        }
+}
 }
