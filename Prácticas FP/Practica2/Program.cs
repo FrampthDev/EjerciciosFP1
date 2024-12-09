@@ -35,19 +35,19 @@ namespace naves {
             
     
             IniciaTunel(suelo, techo);
-            Render(suelo, techo, enemigoC, enemigoF);
+            Render(suelo, techo, enemigoC, enemigoF,naveC,naveF);
            
             while (true){ // true provisional
                 AvanzaTunel(suelo, techo);
                 LogicaJuego(ref naveC, ref naveF, ref balaC, ref balaF, ref enemigoC, ref enemigoF, suelo, techo, ref hayEnemigo);
-                Render(suelo, techo, enemigoC, enemigoF);
+                Render(suelo, techo, enemigoC, enemigoF,naveC,naveF);
 
                 if (DEBUG == true) {
                     Console.SetCursorPosition(0, ALTO);
                     Console.Write($"Techo: [{techo[0]}] Suelo: [{suelo[0]}]"); // c
                     Console.SetCursorPosition(0, ALTO + 1);
                     Console.Write($"Posición enemigo: ({enemigoC},{enemigoF})");
-                    Console.WriteLine($"test: {enemigoC}");
+                    Console.WriteLine($"test: {naveC} | {naveF}");
                 }
 
                 Thread.Sleep(120); 
@@ -96,17 +96,15 @@ namespace naves {
 			}
             return ch;
         }
-        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF) {
+        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF, int naveC, int naveF) {
             RenderTunel(suelo, techo);
-            /*if (enemigoC >= 0){
-                Console.SetCursorPosition(2*enemigoC, enemigoF);
-                Console.Write("<");
-                Console.SetCursorPosition(2*enemigoC + 1, enemigoF);
-                Console.Write(">");
-            }*/
             
             if (enemigoC >0 ){
                 RenderizarEntidad(enemigoC,enemigoF,"<>");
+            }
+
+            if (!ColisionNave(naveC, naveF, suelo, techo, enemigoC, enemigoF)){
+                RenderizarEntidad(naveC,naveF,"=>");
             }
         }
         static void RenderTunel(int [] suelo, int [] techo){ //renderizado de la pantalla
@@ -129,6 +127,7 @@ namespace naves {
         }
         static void LogicaJuego(ref int naveC, ref int naveF, ref int balaC, ref int balaF, ref int enemigoC,ref int enemigoF, int[] suelo, int[] techo, ref bool hayEnemigo){
             GeneraAvanzaEnemigo(ref enemigoC, ref enemigoF, ref hayEnemigo, suelo, techo);
+            AvanzaNave(LeeInput(),ref naveC,ref naveF, enemigoC, enemigoF, suelo, techo);
         }
 
         static void GeneraAvanzaEnemigo(ref int enemigoC, ref int enemigoF, ref bool hayEnemigo, int[] suelo, int []techo){
@@ -159,22 +158,22 @@ namespace naves {
             if ((naveF != suelo[naveF] && naveF != techo[naveF]) && (naveC != enemigoC && naveF!=enemigoF)){
                 // Si la nave no está dentro del suelo, ni del techo ni del enemigo:
 
-                switch (LeeInput()){
-                    case 'l':
-                        naveC--;
-                        break;
-                    case 'r':
-                        naveC++;
-                        break;
-                    case 'u':
-                        naveF--;
-                        break;
-                    case 'd':
-                        naveF++;
-                        break;
+
+                if (ch == 'l' && naveC >0){
+                    naveC--;
+                }
+                if (ch == 'r' && naveC <ANCHO){
+                    naveC++;
+                }
+                if (ch == 'u' && naveF >0){
+                    naveF--;
+                }
+                if (ch == 'd' && naveF <ALTO){
+                    naveF++;
+                }
             }
 
-            }
+            
         }
         static void GeneraAvanzaBala(bool hayBala, char ch, ref int balaC, ref int balaF, int naveC, int naveF, int enemigoC, int enemigoF, int [] suelo, int [] techo){
             if (ch == 'x' && hayBala){
@@ -192,11 +191,11 @@ namespace naves {
         }
 
         static void RenderizarEntidad(int entidadC, int entidadF, string sprite){
-           Console.SetCursorPosition(entidadC, entidadF);
+           Console.SetCursorPosition(entidadC*2, entidadF);
            Console.Write(sprite);
         }
 
-        bool ColisionNave(int naveC, int naveF, int [] suelo, int [] techo, int enemigoC, int enemigoF){
+        static bool ColisionNave(int naveC, int naveF, int [] suelo, int [] techo, int enemigoC, int enemigoF){
             bool colision = false;
 
             if (naveF == suelo[naveF] || naveF == techo[naveF] || naveF == enemigoF && naveC == enemigoC){
