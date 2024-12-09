@@ -28,14 +28,14 @@ namespace naves {
                    techo = new int[ANCHO];
 
             int naveC = ANCHO / 2, naveF = ALTO / 2,   
-                balaC = - 1, balaF = - 1,  
-                enemigoC = - 1, enemigoF = - 1;
+                balaC = 0, balaF = 0,  
+                enemigoC = 0, enemigoF = 0;
 
             // inicializacion
             
     
             IniciaTunel(suelo, techo);
-            RenderTunel(suelo, techo);
+            Render(suelo, techo, enemigoC, enemigoF);
            
             while (true){ // true provisional
                 AvanzaTunel(suelo, techo);
@@ -47,6 +47,7 @@ namespace naves {
                     Console.Write($"Techo: [{techo[0]}] Suelo: [{suelo[0]}]"); // c
                     Console.SetCursorPosition(0, ALTO + 1);
                     Console.Write($"Posición enemigo: ({enemigoC},{enemigoF})");
+                    Console.WriteLine($"test: {enemigoC}");
                 }
 
                 Thread.Sleep(120); 
@@ -97,11 +98,15 @@ namespace naves {
         }
         static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF) {
             RenderTunel(suelo, techo);
-            if (enemigoC >= 0){
+            /*if (enemigoC >= 0){
                 Console.SetCursorPosition(2*enemigoC, enemigoF);
                 Console.Write("<");
                 Console.SetCursorPosition(2*enemigoC + 1, enemigoF);
                 Console.Write(">");
+            }*/
+            
+            if (enemigoC >0 ){
+                RenderizarEntidad(enemigoC,enemigoF,"<>");
             }
         }
         static void RenderTunel(int [] suelo, int [] techo){ //renderizado de la pantalla
@@ -136,12 +141,16 @@ namespace naves {
 
 
             if (hayEnemigo) enemigoC --;
-            else {
-                if (probabilidadDeGeneracion == 0){ // 1/4 de probabilidades de generar
+            
+            else if(probabilidadDeGeneracion == 0){ // 1/4 de probabilidades de generar
                 enemigoC = ANCHO;
-                //enemigoF = filaAleatoria;  // ERROR
-                }
+                hayEnemigo = true;
+                enemigoF = filaAleatoria;  // ERROR
             }
+            if (enemigoC <=-1){
+                hayEnemigo = false;
+            }
+            
         }
 
         static void AvanzaNave(char ch, ref int naveC, ref int naveF, int enemigoC, int enemigoF, int[] suelo, int[] techo){
