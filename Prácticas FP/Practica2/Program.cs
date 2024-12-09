@@ -1,7 +1,10 @@
 ﻿// Javier Zazo Morillo
 // Miguel Ángel González López
 using System;
+using System.Data;
+using System.Diagnostics;
 using System.Globalization;
+using System.Security.Cryptography;
 using System.Threading;
 
 namespace naves {
@@ -10,28 +13,42 @@ namespace naves {
         const bool DEBUG = true;
         const int ANCHO=24, ALTO = 15;
         static Random rnd = new Random(11);
-
-        bool hayEnemigo = false;        
+   
+        
         static void Main() {
             //Console.SetWindowSize(ANCHO, ALTO);
             //Console.SetBufferSize(ANCHO, ALTO);
+            Console.CursorVisible = false;
+
+
+            bool hayEnemigo = false; 
+            bool hayBala = false;    
 
             int [] suelo = new int[ANCHO], // límites del tunel
                    techo = new int[ANCHO];
 
-            int naveC, naveF,   
-                balaC, balaF,  
-                enemigoC, enemigoF;
+            int naveC = ANCHO / 2, naveF = ALTO / 2,   
+                balaC = - 1, balaF = - 1,  
+                enemigoC = - 1, enemigoF = - 1;
 
             // inicializacion
-            naveC = ANCHO/2;
-
-            Renderizado(suelo, techo);
+            
+            
+            IniciaTunel(suelo, techo);
+            RenderTunel(suelo, techo);
            
             while (true){ // true provisional
                 AvanzaTunel(suelo, techo);
-                //LogicaJuego(ref int naveC, ref int NaveF, ref int balaC, ref int balaF, ref int enemigoC,ref int enemigoF);
-                Renderizado(suelo, techo);
+                LogicaJuego(ref naveC, ref naveF, ref balaC, ref balaF, ref enemigoC, ref enemigoF, suelo, techo, ref hayEnemigo);
+                Render(suelo, techo, enemigoC, enemigoF);
+
+                if (DEBUG == true) {
+                    Console.SetCursorPosition(0, ALTO);
+                    Console.Write($"Techo: [{techo[0]}] Suelo: [{suelo[0]}]"); // c
+                    Console.SetCursorPosition(0, ALTO + 1);
+                    Console.Write($"Posición enemigo: ({enemigoC},{enemigoF})");
+                }
+
                 Thread.Sleep(120); 
             } // while
         } // Main
@@ -63,8 +80,6 @@ namespace naves {
             suelo[ANCHO-1] = s;
             techo[ANCHO-1] = t;
         }   
-
-
         static char LeeInput(){
             char ch=' ';
 			if (Console.KeyAvailable) {	
@@ -80,28 +95,43 @@ namespace naves {
 			}
             return ch;
         }
-        static void Renderizado(int [] suelo, int [] techo){ //renderizado de la pantalla
-            Console.Clear();
-            for (int i = 0; i < ANCHO; i++) {
-                for (int j = 0; j < techo[i]; j++) {
-                    Console.SetCursorPosition(i, j);
-                    Console.Write("█");
-                 }
-                for (int j = 0; j < suelo[i]; j++) {
-                    Console.SetCursorPosition(i, ALTO - j);
-                    Console.Write("█");
-                 }
+        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF) {
+            RenderTunel(suelo, techo);
+            if (enemigoC >= 0){
+                Console.SetCursorPosition(2*enemigoC, enemigoF);
+                Console.Write("<");
+                Console.SetCursorPosition(2*enemigoC + 1, enemigoF);
+                Console.Write(">");
             }
         }
-
-        static void LogicaJuego(ref int naveC, ref int naveF, ref int balaC, ref int balaF, ref int enemigoC,ref int enemigoF){
-
-        
+        static void RenderTunel(int [] suelo, int [] techo){ //renderizado de la pantalla
+            Console.Clear();
+            for (int i = 0; i < ANCHO; i++) {
+                for (int j = 0; j < ALTO; j++) {
+                    if (j <= techo[i] || j >= suelo[i]){
+                        Console.SetCursorPosition(i*2, j);
+                        Console.Write("██");
+                    }
+                }
+            }
+        }
+        static void IniciaTunel(int [] suelo, int[] techo) {
+            techo[ANCHO - 1] = 0;
+            suelo[ANCHO - 1] = ALTO - 1;
+            for (int i = 0; i < ANCHO - 1; i++) {
+                AvanzaTunel(suelo, techo);
+            }
+        }
+        static void LogicaJuego(ref int naveC, ref int naveF, ref int balaC, ref int balaF, ref int enemigoC,ref int enemigoF, int[] suelo, int[] techo, ref bool hayEnemigo){
+            GeneraAvanzaEnemigo(ref enemigoC, ref enemigoF, ref hayEnemigo, suelo, techo);
         }
 
         static void GeneraAvanzaEnemigo(ref int enemigoC, ref int enemigoF, ref bool hayEnemigo, int[] suelo, int []techo){
             
-            int filaAleatoria = rnd.Next(ALTO-(techo[techo.Length]+suelo[suelo.Length])); // calcula un número aleatorio entre los espacios posibles de la última fila del túnel
+            //int filaAleatoria = rnd.Next(ALTO-(techo[techo.Length]+suelo[suelo.Length])); // ERROR -calcula un número aleatorio entre los espacios posibles de la última fila del túnel
+            int filaAleatoria = rnd.Next(techo[techo.Length] + 1, suelo[suelo.Length]); 
+            
+            
             int probabilidadDeGeneracion = rnd.Next(3);            
 
 
@@ -109,7 +139,7 @@ namespace naves {
             else {
                 if (probabilidadDeGeneracion == 0){ // 1/4 de probabilidades de generar
                 enemigoC = ANCHO;
-                enemigoF = filaAleatoria + techo[techo.Length]; 
+                enemigoF = filaAleatoria;  // ERROR
                 }
             }
         }
@@ -135,8 +165,49 @@ namespace naves {
                         break;
             }
 
-
             }
         }
-}
+        static void GeneraAvanzaBala(bool hayBala, char ch, ref int balaC, ref int balaF, int naveC, int naveF, int enemigoC, int enemigoF, int [] suelo, int [] techo){
+            if (ch == 'x' && hayBala){
+                
+                    // Genera una nueva bala por delante de la nave (naveC+1)
+                    balaC = naveC +1;
+                    balaF = naveF;
+            }
+            else if (hayBala && (balaF != techo[balaF] && balaF != techo[balaF]) && (balaF != enemigoF && balaC != enemigoC)){
+
+                    // la bala avanza una posición
+                    balaC ++;
+            }           
+        
+        }
+
+        static void RenderizarEntidad(int entidadC, int entidadF, string sprite){
+           Console.SetCursorPosition(entidadC, entidadF);
+           Console.Write(sprite);
+        }
+
+        bool ColisionNave(int naveC, int naveF, int [] suelo, int [] techo, int enemigoC, int enemigoF){
+            bool colision = false;
+
+            if (naveF == suelo[naveF] || naveF == techo[naveF] || naveF == enemigoF && naveC == enemigoC){
+                // colisión del enemigo o techo.
+                colision = true;
+                
+            }
+            
+            // Determina si la nave colisiona contra el suelo, el techo o el enemigo.
+            return colision;
+        }
+        void ColisionBala(int balaC, int balaF, int enemigoC, int enemigoF, int[] suelo, int [] techo, int colC, int colF){
+            // si la bala está a la derecha de la pantalla la elimina
+            //if (hayBala && )
+
+
+            // si colisiona con el enemigo elimina la bala y el enemigo y devuelve en colC, colF la posición de la colisión
+            // si colisiona con el suelo o con el techo elimina la bala y devuelve en colC y colF la posición de la colisión y destruye 3 bloques
+            //si no hay colisión simplemente devuelve colC=colF=-1 para indicarlo.
+        }
+        }
+    
 }
