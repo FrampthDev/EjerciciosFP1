@@ -33,7 +33,7 @@ namespace naves {
 
             // inicializacion
             
-            
+    
             IniciaTunel(suelo, techo);
             RenderTunel(suelo, techo);
            
@@ -129,7 +129,7 @@ namespace naves {
         static void GeneraAvanzaEnemigo(ref int enemigoC, ref int enemigoF, ref bool hayEnemigo, int[] suelo, int []techo){
             
             //int filaAleatoria = rnd.Next(ALTO-(techo[techo.Length]+suelo[suelo.Length])); // ERROR -calcula un número aleatorio entre los espacios posibles de la última fila del túnel
-            int filaAleatoria = rnd.Next(techo[techo.Length] + 1, suelo[suelo.Length]); 
+            int filaAleatoria = rnd.Next(techo[techo.Length-1] + 1, suelo[suelo.Length-1]); 
             
             
             int probabilidadDeGeneracion = rnd.Next(3);            
@@ -139,7 +139,7 @@ namespace naves {
             else {
                 if (probabilidadDeGeneracion == 0){ // 1/4 de probabilidades de generar
                 enemigoC = ANCHO;
-                enemigoF = filaAleatoria;  // ERROR
+                //enemigoF = filaAleatoria;  // ERROR
                 }
             }
         }
