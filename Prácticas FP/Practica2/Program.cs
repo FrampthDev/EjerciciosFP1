@@ -162,13 +162,13 @@ namespace naves {
                 if (ch == 'l' && naveC >0){
                     naveC--;
                 }
-                if (ch == 'r' && naveC <ANCHO){
+                if (ch == 'r' && naveC <ANCHO-1){
                     naveC++;
                 }
                 if (ch == 'u' && naveF >0){
                     naveF--;
                 }
-                if (ch == 'd' && naveF <ALTO){
+                if (ch == 'd' && naveF <ALTO-1){
                     naveF++;
                 }
             }
@@ -198,11 +198,11 @@ namespace naves {
         static bool ColisionNave(int naveC, int naveF, int [] suelo, int [] techo, int enemigoC, int enemigoF){
             bool colision = false;
 
-            if (naveF == suelo[naveF] || naveF == techo[naveF] || naveF == enemigoF && naveC == enemigoC){
-                // colisión del enemigo o techo.
+            /*if (naveF == suelo[naveF] || naveF == techo[naveF] || naveF == enemigoF && naveC == enemigoC){
+                // ERROR CORREGIR COLISIONES
                 colision = true;
                 
-            }
+            }*/
             
             // Determina si la nave colisiona contra el suelo, el techo o el enemigo.
             return colision;
