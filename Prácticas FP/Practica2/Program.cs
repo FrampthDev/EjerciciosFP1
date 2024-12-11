@@ -45,13 +45,7 @@ namespace naves {
                     gameOver = true;
                 }
                 else if (ch == 'p'){
-                    pause = true;
-                    while(pause == true){
-                        ch = LeeInput();
-                        if (ch == 'p'){
-                            pause = false;
-                        }
-                    }
+                    //console. int parse ("Pausa \n pulsa enter para continuar")
                 }
                 else{
 
@@ -118,10 +112,8 @@ namespace naves {
 			}
             return ch;
         }
-        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF, int naveC, int naveF, int balaC, int balaF, bool hayBala, ref int colC, ref int colF) {
+        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF, int naveC, int naveF, int balaC, int balaF, bool hayBala, int colC, int colF) {
             
-            
-
             RenderTunel(suelo, techo);
             
             if (enemigoC > 0){
@@ -137,8 +129,6 @@ namespace naves {
             }
             if (colC >0 && colF > 0){
                 RenderizarEntidad(colC, colF,"**");
-                colC = -1;
-                colF = -1;
             }
         }
         static void RenderTunel(int [] suelo, int [] techo){ //renderizado de la pantalla
@@ -169,13 +159,11 @@ namespace naves {
             AvanzaNave(ref gameOver,ch,ref naveC,ref naveF, enemigoC, enemigoF, suelo, techo);
             if (ColisionNave(naveC, naveF, suelo, techo, enemigoC, enemigoF)) {gameOver = true;}
 
-
-            ColisionBala(ref hayBala, ref balaC, balaF, ref enemigoC, enemigoF,ref hayEnemigo, suelo, techo, ref colC, ref colF);
-            GeneraAvanzaBala(ch, ref hayBala, ref balaC, ref balaF, naveC, naveF, enemigoC, enemigoF, suelo, techo);
-            ColisionBala(ref hayBala, ref balaC, balaF, ref enemigoC, enemigoF,ref hayEnemigo, suelo, techo, ref colC, ref colF);
+            GeneraAvanzaBala(ch,, ref balaC, ref balaF, naveC, naveF, enemigoC, enemigoF, suelo, techo);
+            ColisionBala(, ref balaC, balaF, ref enemigoC, enemigoF, suelo, techo, ref colC, ref colF);
         }
 
-        static void GeneraAvanzaEnemigo(ref int enemigoC, ref int enemigoF, ref bool hayEnemigo, int[] suelo, int []techo){
+        static void GeneraAvanzaEnemigo(int enemigoC, int enemigoF, int[] suelo, int []techo){
             
             //int filaAleatoria = rnd.Next(ALTO-(techo[techo.Length]+suelo[suelo.Length])); // ERROR -calcula un número aleatorio entre los espacios posibles de la última fila del túnel
             int filaAleatoria = rnd.Next(techo[techo.Length-1] + 1, suelo[suelo.Length-1]); 
@@ -188,17 +176,15 @@ namespace naves {
             
             else if(probabilidadDeGeneracion == 0){ // 1/4 de probabilidades de generar
                 enemigoC = ANCHO;
-                hayEnemigo = true;
                 enemigoF = filaAleatoria;  
             }
             if (enemigoC <=-1){
-                hayEnemigo = false;
+              //dejar de mover a enemigo
             }
             
         }
 
-        static void AvanzaNave(ref bool gameOver,char  ch, ref int naveC, ref int naveF, int enemigoC, int enemigoF, int[] suelo, int[] techo){
-            
+        static void AvanzaNave(char ch, int naveC, int naveF, int enemigoC, int enemigoF,int [] suelo, int [] techo){
             
             if ((naveF >= techo[naveC] && naveF <= suelo[naveC]) || (naveC != enemigoC && naveF != enemigoF)){
                 // Si la nave no está dentro del suelo, ni del techo ni del enemigo:
@@ -217,20 +203,16 @@ namespace naves {
                 }
             }           
         }
-        static void GeneraAvanzaBala(char ch, ref bool hayBala, ref int balaC, ref int balaF, int naveC, int naveF, int enemigoC, int enemigoF, int [] suelo, int [] techo){
-            if (ch == 'x' && !hayBala){
-                
+        static void GeneraAvanzaBala(char ch, int balaC, int balaF, int naveC, int naveF, int enemigoC, int enemigoF, int [] suelo, int [] techo):{
+            if (ch == 'x' && balaC > ANCHO){
                     // Genera una nueva bala por delante de la nave (naveC+1)
                     balaC = naveC +1;
                     balaF = naveF;
-                    hayBala = true;
             }
             else if (hayBala && (balaF != techo[balaC] && balaF != techo[balaC] && balaC < ANCHO - 1) && (balaF != enemigoF && balaC != enemigoC)){
-
-                    // la bala avanza una posición
+                    // la bala avanza dos posición
                     balaC += 2;
             } 
-            else hayBala = false;              
         }
 
         static void RenderizarEntidad(int entidadC, int entidadF, string sprite){
@@ -250,7 +232,7 @@ namespace naves {
             // Determina si la nave colisiona contra el suelo, el techo o el enemigo.
             return colision;
         }
-        static void ColisionBala(ref bool hayBala, ref int balaC, int balaF, ref int enemigoC, int enemigoF,ref bool hayEnemigo ,int[] suelo, int [] techo, ref int colC, ref int colF){
+        static void ColisionBala(int balaC, int balaF, int enemigoC, int enemigoF, int [] suelo, int [] techo, int colC, int colF){
             // si la bala está a la derecha de la pantalla la elimina
             //if (hayBala && )
 
@@ -259,38 +241,30 @@ namespace naves {
                 colC = balaC + 1;
                 colF = balaF;
                 enemigoC = 0;
-                hayEnemigo = false;              
                 balaC = 0;
-                hayBala = false;
             }
             else if (balaC == enemigoC && balaF == enemigoF){
                 colC = balaC;
                 colF = balaF;
                 enemigoC = 0;
-                hayEnemigo = false;              
                 balaC = 0;
-                hayBala = false;
             }
 
             else if (balaC > 0 && balaF >= suelo[balaC - 1]){
                 suelo[balaC - 1] = balaF + 1;
                 balaC = 0;
-                hayBala = false;
             }
             else if (balaF >= suelo[balaC]){
                 suelo[balaC] = balaF + 1;
                 balaC = 0;
-                hayBala = false;
             }
             else if (balaC > 0 && balaF <= techo[balaC - 1]){  
                 techo[balaC - 1] = balaF - 1;
                 balaC = 0;
-                hayBala = false;
             }     
             else if (balaF <= techo[balaC]){  
                 techo[balaC] = balaF - 1;
                 balaC = 0;
-                hayBala = false;
             }     
             
             // si colisiona con el enemigo elimina la bala y el enemigo y devuelve en colC, colF la posición de la colisión
