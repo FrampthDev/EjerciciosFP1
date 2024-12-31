@@ -1,0 +1,14 @@
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.AssemblyInfoInputs.cache
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.AssemblyInfo.cs
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.csproj.CoreCompileInputs.cache
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\bin\Debug\net8.0\Practica2rehecha.exe
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\bin\Debug\net8.0\Practica2rehecha.deps.json
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\bin\Debug\net8.0\Practica2rehecha.runtimeconfig.json
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\bin\Debug\net8.0\Practica2rehecha.dll
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\bin\Debug\net8.0\Practica2rehecha.pdb
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.dll
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\refint\Practica2rehecha.dll
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.pdb
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\Practica2rehecha.genruntimeconfig.cache
+C:\Users\jzazo\source\repos\Practica2rehecha\Practica2rehecha\obj\Debug\net8.0\ref\Practica2rehecha.dll
