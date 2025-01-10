@@ -20,12 +20,12 @@ namespace naves
                 enemigoC, enemigoF,
                 colC, colF;
 
-            bool crashNave = false;
+            bool crashNave = false; // bool para terminar la partida
 
-            IniciaTunel(suelo, techo);
+            IniciaTunel(suelo, techo); // Se establece el estado inicial del túnel
 
             naveC = ANCHO / 2;
-            naveF = (techo[naveC] + suelo[naveC]) / 2;
+            naveF = (techo[naveC] + suelo[naveC]) / 2; // Nave posicionada enmedio del túnel
 
             balaC = -1;
             balaF = -1;
@@ -33,19 +33,19 @@ namespace naves
             enemigoC = -1;
             enemigoF = -1;
 
-            colC = -1;
-            colF = -1;
+            colC = -1; 
+            colF = -1; // Inicializamos las posiciones de la bala, el enemigo y la colisión en -1 para indicar que no existen
 
-            Render(suelo, techo, enemigoC, enemigoF, naveC, naveF, balaC, balaF, colC, colF, crashNave);
+            Render(suelo, techo, enemigoC, enemigoF, naveC, naveF, balaC, balaF, colC, colF, crashNave); // Primera renderización del juego
 
-            while (!crashNave)
+            while (!crashNave) // El bucle de juego se ejecuta hasta que acabe la partida (por destrucción de la nave o por salirse del juego)
             {
-                char ch = LeeInput();
-                if (ch == 'q')
+                char ch = LeeInput(); // ch = tecla pulsada
+                if (ch == 'q') // si "quit", crashNave = true para finalizar el juego
                 {
                     crashNave = true;
                 }
-                else if (ch == 'p')
+                else if (ch == 'p') // si "pause", se pausa el juego hasta que el jugador presione enter
                 {
                     Console.SetCursorPosition(ANCHO * 2, 0);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -59,21 +59,23 @@ namespace naves
 
                     }
                 }
-                else
+                else // Si no se pausa ni se finaliza la partida, el juego continua con normalidad
                 {
-                    AvanzaTunel(suelo, techo);
-                    GeneraAvanzaEnemigo(ref enemigoC, ref enemigoF, suelo, techo);
-                    AvanzaNave(ch, ref naveC, ref naveF, enemigoC, enemigoF, suelo, techo);
+                    AvanzaTunel(suelo, techo); // Se mueve el túnel una casilla a la izquierda
 
-                    crashNave = ColisionNave(naveC, naveF, suelo, techo, enemigoC, enemigoF);
+                    GeneraAvanzaEnemigo(ref enemigoC, ref enemigoF, suelo, techo); // Lógica del enemigo
 
-                    GeneraAvanzaBala(ch, ref balaC, ref balaF, naveC, naveF, enemigoC, enemigoF, suelo, techo);
+                    AvanzaNave(ch, ref naveC, ref naveF, enemigoC, enemigoF, suelo, techo); // Control de la nave
 
-                    ColisionBala(ref balaC, balaF, ref enemigoC, enemigoF, suelo, techo, out colC, out colF);
+                    crashNave = ColisionNave(naveC, naveF, suelo, techo, enemigoC, enemigoF); // Comprobación de la colisión de la nave
 
-                    Render(suelo, techo, enemigoC, enemigoF, naveC, naveF, balaC, balaF, colC, colF, crashNave);
+                    GeneraAvanzaBala(ch, ref balaC, ref balaF, naveC, naveF, enemigoC, enemigoF, suelo, techo); // Lógica de la bala
 
-                    if (DEBUG)
+                    ColisionBala(ref balaC, balaF, ref enemigoC, enemigoF, suelo, techo, out colC, out colF); // Comprobación de la colisión de la bala
+
+                    Render(suelo, techo, enemigoC, enemigoF, naveC, naveF, balaC, balaF, colC, colF, crashNave); // Renderizado del juego
+
+                    if (DEBUG) // si el modo DEBUG está activado, aparecen ciertos parámetros debajo del túnel
                     {
                         Console.SetCursorPosition(0, ALTO);
                         Console.ForegroundColor = ConsoleColor.White;
@@ -87,10 +89,10 @@ namespace naves
                         Console.WriteLine("BalaC = " + balaC);
                         Console.WriteLine("BalaF = " + balaF);
                     }
-                    Thread.Sleep(120);
+                    Thread.Sleep(120); // Pausa entre fotogramas
                 }
-            } // while
-        } // Main
+            } 
+        } 
 
         static void AvanzaTunel(int[] suelo, int[] techo)
         {
@@ -136,18 +138,20 @@ namespace naves
             }
             return ch;
         }
-        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF, int naveC, int naveF, int balaC, int balaF, int colC, int colF, bool crashNave)
+        static void Render(int[] suelo, int[] techo, int enemigoC, int enemigoF, int naveC, int naveF, int balaC, int balaF, int colC, int colF, bool crashNave) 
         {
-            RenderTunel(suelo, techo);
+            Console.Clear(); // Limpiamos la pantalla antes de generar el nuevo fotograma
 
-            if (enemigoC >= 0)
+            RenderTunel(suelo, techo); // Renderizado túnel
+
+            if (enemigoC >= 0) // Renderizado enemigo
             {
                 Console.SetCursorPosition(enemigoC * 2, enemigoF);
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("<>");
             }
 
-            Console.SetCursorPosition(naveC * 2, naveF);
+            Console.SetCursorPosition(naveC * 2, naveF); // Renderizado nave (o explosión nave)
 
             if (!crashNave)
             {
@@ -160,14 +164,14 @@ namespace naves
                 Console.Write("**");
             }
 
-            if (balaC >= 0)
+            if (balaC >= 0) // Renderizado bala
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.SetCursorPosition(balaC * 2, balaF);
                 Console.Write("--");
             }
 
-            if (colC >= 0)
+            if (colC >= 0) // Renderizado explosión de la bala
             {
                 Console.SetCursorPosition(colC * 2, colF);
                 Console.ForegroundColor = ConsoleColor.White;
@@ -176,8 +180,6 @@ namespace naves
         }
         static void RenderTunel(int[] suelo, int[] techo)
         {
-            Console.Clear();
-
             for (int i = 0; i < ANCHO; i++)
             {
                 for (int j = 0; j < ALTO; j++)
@@ -195,7 +197,7 @@ namespace naves
         static void IniciaTunel(int[] suelo, int[] techo)
         {
             techo[ANCHO - 1] = 0;
-            suelo[ANCHO - 1] = ALTO - 1; // El túnel empieza siendo lo más ancho posible
+            suelo[ANCHO - 1] = ALTO - 1; // El túnel empieza siendo lo más alto posible
 
             for (int i = 0; i < ANCHO - 1; i++)
             {
@@ -204,27 +206,27 @@ namespace naves
         }
         static void GeneraAvanzaEnemigo(ref int enemigoC, ref int enemigoF, int[] suelo, int[] techo)
         {
-            if (enemigoC == -1 && rnd.Next(0, 4) == 0)
+            if (enemigoC == -1 && rnd.Next(0, 4) == 0) // Si no hay enemigo, hay una probabilidad de 1/4 de generarlo al final del túnel a una altura aleatoria (entre el techo y el suelo)
             {
                 enemigoC = ANCHO - 1;
                 enemigoF = rnd.Next(techo[enemigoC], suelo[enemigoC]);
             }
-            else if (enemigoC >= 0)
+            else if (enemigoC >= 0) // Si hay enemigo, este avanza una casilla hacia la izquierda
             {
                 enemigoC--;
             }
         }
         static void AvanzaNave(char ch, ref int naveC, ref int naveF, int enemigoC, int enemigoF, int[] suelo, int[] techo)
         {
-            if ((naveC == enemigoC && naveF == enemigoF) || (naveF == techo[naveC]) || (naveF == suelo[naveC]))
+            if ((naveC == enemigoC && naveF == enemigoF) || (naveF == techo[naveC]) || (naveF == suelo[naveC])) // Solo se comprueban las teclas de movimiento si la nave no está colisionando ni con el túnel ni con el enemigo
             {
 
             }
-            else if (naveC > 0 && ch == 'l')
+            else if (naveC > 0 && ch == 'l') // Condición para no salirse del mapa por la izquierda
             {
                 naveC--;
             }
-            else if (naveC < ANCHO - 1 && ch == 'r')
+            else if (naveC < ANCHO - 1 && ch == 'r') // Condición para no salirse del mapa por la derecha
             {
                 naveC++;
             }
@@ -239,12 +241,12 @@ namespace naves
         }
         static void GeneraAvanzaBala(char ch, ref int balaC, ref int balaF, int naveC, int naveF, int enemigoC, int enemigoF, int[] suelo, int[] techo)
         {
-            if (balaC == -1 && ch == 'x')
+            if (balaC == -1 && ch == 'x') // Si no hay bala y se pulsa la tecla de disparar, se genera una bala delante de la nave
             {
                 balaC = naveC + 1;
                 balaF = naveF;
             }
-            else if ((balaC >= 0) && (balaF > techo[balaC]) && (balaF < suelo[balaC]) && (balaC != enemigoC || balaF != enemigoF))
+            else if ((balaC >= 0) && (balaF > techo[balaC]) && (balaF < suelo[balaC]) && (balaC != enemigoC || balaF != enemigoF)) // Si hay bala y no esta colisionando ni con el túnel ni con  el enemigo, esta avanza una casilla hacia la derecha
             {
                 balaC++;
             }
@@ -253,19 +255,19 @@ namespace naves
         {
             bool crashNave = false;
 
-            if (naveF <= techo[naveC] || naveF >= suelo[naveC] || (naveC == enemigoC && naveF == enemigoF))
+            if (naveF <= techo[naveC] || naveF >= suelo[naveC] || (naveC == enemigoC && naveF == enemigoF)) // Se comprueba si la nave está colisionando con el túnel o el enemigo
             {
                 crashNave = true;
             }
-            return crashNave;
+            return crashNave; // true si colisiona false si no
         }
         static void ColisionBala(ref int balaC, int balaF, ref int enemigoC, int enemigoF, int[] suelo, int[] techo, out int colC, out int colF)
         {
-            if (balaC == ANCHO)
+            if (balaC == ANCHO) // Si la bala llega al final del túnel, esta desaparece
             {
                 balaC = -1;
             }
-            if (balaC >= 0)
+            if (balaC >= 0) // Si hay bala, se comprueban sus colisiones con el enemigo y con el túnel y se devuelven en colC y colF
             {
                 if (balaC == enemigoC && balaF == enemigoF)
                 {
@@ -273,6 +275,7 @@ namespace naves
                     colF = balaF;
 
                     balaC = -1;
+
                     enemigoC = -1;
                 }
                 else if (balaF <= techo[balaC])
@@ -282,7 +285,7 @@ namespace naves
 
                     balaC = -1;
 
-                    techo[colC] = colF - 1;
+                    techo[colC] = colF - 1; // Destruye el techo des del impacto de la bala hacia abajo
                 }
                 else if (balaF >= suelo[balaC])
                 {
@@ -291,14 +294,14 @@ namespace naves
 
                     balaC = -1;
 
-                    suelo[colC] = colF + 1;
+                    suelo[colC] = colF + 1; // Destruye el suelo des del impacto de la bala hacia arriba
                 }
-                else
+                else // Si la bala no colisiona, no hay colisión de la bala
                 {
                     colC = colF = -1;
                 }
             }
-            else
+            else // Si no hay bala, no hay colisión de la bala
             {
                 colC = colF = -1;
             }

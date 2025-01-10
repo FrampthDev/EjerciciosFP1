@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jzazo\\source\\repos\\Practica2rehecha\\",
+  "WorkspaceRootPath": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Pr\u00E1cticas FP\\Practica2rehecha (la soluci\u00F3n est\u00E1 dentro de la carpeta)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{803E02FA-487C-4997-95EC-A3FD17CF49FA}|Practica2rehecha\\Practica2rehecha.csproj|c:\\users\\jzazo\\source\\repos\\practica2rehecha\\practica2rehecha\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{803E02FA-487C-4997-95EC-A3FD17CF49FA}|Practica2rehecha\\Practica2rehecha.csproj|c:\\users\\jzazo\\documents\\github\\ejerciciosfp1\\pr\u00E1cticas fp\\practica2rehecha (la soluci\u00F3n est\u00E1 dentro de la carpeta)\\practica2rehecha\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{803E02FA-487C-4997-95EC-A3FD17CF49FA}|Practica2rehecha\\Practica2rehecha.csproj|solutionrelative:practica2rehecha\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\jzazo\\source\\repos\\Practica2rehecha\\Practica2rehecha\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Pr\u00E1cticas FP\\Practica2rehecha (la soluci\u00F3n est\u00E1 dentro de la carpeta)\\Practica2rehecha\\Program.cs",
               "RelativeDocumentMoniker": "Practica2rehecha\\Program.cs",
-              "ToolTip": "C:\\Users\\jzazo\\source\\repos\\Practica2rehecha\\Practica2rehecha\\Program.cs",
-              "RelativeToolTip": "Practica2rehecha\\Program.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAAAFEAAABJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\jzazo\\Documents\\GitHub\\EjerciciosFP1\\Pr\u00E1cticas FP\\Practica2rehecha (la soluci\u00F3n est\u00E1 dentro de la carpeta)\\Practica2rehecha\\Program.cs*",
+              "RelativeToolTip": "Practica2rehecha\\Program.cs*",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswCgAAACOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-31T17:12:46.744Z",
               "EditorCaption": ""

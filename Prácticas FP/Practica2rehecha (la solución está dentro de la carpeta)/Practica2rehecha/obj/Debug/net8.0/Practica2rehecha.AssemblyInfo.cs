@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Practica2rehecha")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b244bcc7e4bbaba68c1ca4a4fbc653e089b4c70c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Practica2rehecha")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Practica2rehecha")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
